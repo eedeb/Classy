@@ -23,7 +23,7 @@ Usage
 intent, certainty = Classy.classify_api("hello, how are you?")</code></pre>
 
 
-Go to http://chat.mrpi314.com/api to learn about how to use the api yourself.
+Go to http://app.chat314.com/api to learn about how to use the api yourself.
 
 
 ## Other tools
