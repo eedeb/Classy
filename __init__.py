@@ -34,6 +34,8 @@ try:
     import nltk
     nltk.word_tokenize('')
 except LookupError:
-    import nltk
-    print('downloading nltk tokenizer')
-    nltk.download('punkt')
+    print('Please download the nltk punkt tokenizer by running this:')
+    print("nltk.download('punkt')")
+    print('If the error persists, run this:')
+    print("nltk.download('punkt_tab')")
+    print('Or try moving the tokenizer file')
