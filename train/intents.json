@@ -756,7 +756,12 @@
         "Search up some jokes about cats.",
         "How old is Joe Biden?",
         "How old is Elon Musk?",
-        "How old is the Lexus company?"
+        "How old is the Lexus company?",
+        "What NFL teams played last night?",
+        "What were the NFL results yesterday?",
+        "What teams won yesterday?",
+        "What teams play tomorrow?",
+        "Who plays in Sunday night football?"
       ],
       "responses": ["Search"]
     },
