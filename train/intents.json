@@ -930,7 +930,9 @@
         "Shut down the current application",
         "Kill the process for Chrome",
         "End Task for Notepad",
-        "Terminate the Command Prompt window"
+        "Terminate the Command Prompt window",
+        "Close the github tab.",
+        "Exit the youtube tab."
       ],
       "responses": ["Utility"]
     },
