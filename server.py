@@ -1,8 +1,3 @@
-# this is just the code I use on my website.
-# You don't really need this.
-
-
-
 # import and download required packages
 import nltk
 from random import choice
@@ -10,10 +5,28 @@ import Search_Scrape as ss
 import copy
 import ast
 import os
-
+import importlib
 #############################################################################3
 import torch
 from Classy.model import NeuralNet
+
+
+
+
+chatlist=['Ask me anything! I can search google for an answer.','I can do many things to help out. Just ask me!', 'If you want to play a game, just say "Rock paper scissors!"','Try searching for information or writing stories with me.', "What are you doing today?", 'If you want, I can make images for you.', 'I am powered by Google Search and ChatGPT to deliver the best responses to you.',"What's your favorite thing to do in your free time?",    "You can ask me about anything on the web. If you are specific enough, I can find it.",    "Try asking me about sports results.",    "Do you have any hobbies that you enjoy?",    "What do you like to do on the weekends?"]
+history=['','']
+mood_history=['','']
+chat_history=['','']
+messages=[{
+        "role":"system",
+            "content":'occasionally, you will get input that begins with "context:" this is just for context and requires nou output. Otherwise, just act like a normal GPT.'
+        }]
+s_messages=[{
+        "role":"system",
+        "content":'I have a webscraper. Organize the output into sentences. Make sure every single detail from the scrape are included. Output just the cleaned sentence.'
+        }]
+user_history=['','']
+
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -35,6 +48,7 @@ model_state = ''
 model = ''
 check=False
 user_name=''
+image_limit='idk'
 def init(location,key):
     global client
     global data
@@ -46,11 +60,10 @@ def init(location,key):
     global model_state
     global model
     global check
-
+    global image_limit
     global user_name
     user_name=key
-
-    client = OpenAI(
+    client= OpenAI(
         api_key=key
     )
     data = torch.load(location)
@@ -66,6 +79,27 @@ def init(location,key):
     model.load_state_dict(model_state)
     model.eval()
     check=True
+    try:
+        global history
+        print(history)
+        global chat_history
+        global user_history
+
+        history3=history.copy()
+        chat_history4=chat_history.copy()
+        user_history7=user_history.copy()
+
+        history3.pop(len(history3)-1)
+        history3.pop(len(history3)-1)
+
+        chat_history4.pop(len(chat_history4)-1)
+        chat_history4.pop(len(chat_history4)-1)
+
+        user_history7.pop(len(user_history7)-1)
+        user_history7.pop(len(user_history7)-1)
+        return history3, chat_history4, user_history7
+    except IndexError:
+        return [], [], []
 ####################################################################################3
 
 
@@ -122,34 +156,14 @@ def bag_of_words(tokenized_sentence, words):
 
 # chatbot function
 def server(qstn):
-    try:
-        file1 = open(os.path.join(os.path.dirname(__file__), user_name+"_data"), "r")
+    global chatlist
+    global history
+    global mood_history
+    global chat_history
+    global messages
+    global s_messages
+    global user_history
 
-        imported_var=file1.read()
-
-        file1.close()
-
-
-        imported_var=imported_var.split('\n')
-        chatlist=ast.literal_eval(imported_var[0])
-        mood_history=ast.literal_eval(imported_var[1])
-        history=ast.literal_eval(imported_var[2])
-        chat_history=ast.literal_eval(imported_var[3])
-        messages=ast.literal_eval(imported_var[4])
-        s_messages=ast.literal_eval(imported_var[5])
-    except FileNotFoundError:
-        chatlist=['Ask me anything! I can search google for an answer.','I can do many things to help out. Just ask me!', 'if you want to play a game, just ask me!','what is your favorite color?', "what are you doing today?", 'what is your favorite food?', 'Tell me about yourself.',"What's your favorite thing to do in your free time?",    "Have you traveled anywhere recently? Where did you go?",    "What's your favorite type of music?",    "Do you have any hobbies that you enjoy?",    "What do you like to do on the weekends?"]
-        history=['','']
-        mood_history=['','']
-        chat_history=['','']
-        messages=[{
-                "role":"system",
-                    "content":'keep everything to one line'
-                }]
-        s_messages=[{
-                "role":"system",
-                "content":'I have a webscraper. Organize the output into a single, clean sentence. If necessary, use your own knowledge or context to give the desired output. Output just the cleaned sentence.'
-                }]
     global check
     if check == False:
         raise RuntimeError('Please use Classy.init() to set up the program.')
@@ -183,18 +197,22 @@ def server(qstn):
     #print(prob.item())
     #print(tag)
     #########################################################################################3
-    if tag == 'GPT' and prob.item() >= 0.70:
+    if tag == 'GPT' and prob.item() >= 0.50:
         intent.append('*gpt')
-    elif tag == 'Dall-e' and prob.item() >= 0.70:
+    elif tag == 'Dall-e' and prob.item() >= 0.50:
         intent.append('*dall-e')
-    elif tag == 'Search' and prob.item() >= 0.70:
+    elif tag == 'Search' and prob.item() >= 0.50:
         intent.append('*Search')
+    elif tag == 'Utility' and prob.item() >= 0.50:
+        intent.append('*Utility')
         
     
     # organize
+    if 'what' in qstn and 'up' in qstn or 'good day' in qstn:
+        intent.append('*greet')
     for keyword in qstn:
         # greeting
-        if keyword in ['hello', 'hi', 'howdy', 'greetings', 'good day']:
+        if keyword in ['hello', 'hi', 'howdy', 'greetings']:
             intent.append('*greet')
         # question words
         if keyword in ['who', 'what', 'where', 'when', 'why', 'how']:
@@ -243,11 +261,12 @@ def server(qstn):
     debug_format_var=copy.deepcopy(format_var)
     greetings=['Hello user',"Hi",'Howdy']
     greet_response=["I'm fine, how are you?","I am doing great!"]
-    introduce=['I am CustomChat, and I am an easily customizable Python Chatbot. Ask me general information, or just have a conversation.']
+    introduce=['I am Chat314, and I am an all in one Online AI assitant. I classify your input into categories to process with different models to deliver you the best response. You can ask me questions, generate images, or write stories with me.']
     doing=['I am computing your input']
     good_response=['That is great','That is good','Great!']
     bad_response=['That is not good.', 'I am sorry.']
     thank_response=['Your welcome','Anytime']
+    made_you=['I was made by eedebhttps://github.com/eedeb to be an anonymous, affordable route to interacting with AI efficiently.']
     doing_today=["I like to process your input","My hobby is to listen to you","I like listening to you talk"]
     # rock paper scissors
     if 'Do you want to throw rock, paper, or scissors?' in history[0]:
@@ -294,7 +313,7 @@ def server(qstn):
         if '*user_personal' in format_var and '*like' in format_var:
             format_var=list_replace(format_var,'*user_personal',choice(doing_today))
             moodometer=[1,2,2,2,2,2,3]
-    if "what are you doing today?" in chat_history[0] or "what are you doing today?" in chat_history[0] or 'Do you have any hobbies that you enjoy?' in chat_history[0]:
+    if  "doing today" in chat_history[0] or 'hobbies' in chat_history[0]:
         if '*nothing' in format_var:
             format_var=list_replace(format_var,'*nothing',choice(['I know you do something','Everyone does something']))
             moodometer=[1,3]
@@ -320,7 +339,7 @@ def server(qstn):
             moodometer=[1,2,2,2,3]
     # analize
     if '*to be' in format_var and '*good' in format_var:
-        moodometer=[5]
+        moodometer=[5,7]
     if '*greet' in format_var:
         format_var=list_replace(format_var,'*greet',choice(greetings))
         moodometer=[1,2,2,2,3]
@@ -336,12 +355,50 @@ def server(qstn):
     if '*neutral' in format_var:
         format_var=list_replace(format_var, '*neutral', 'ok')
         moodometer=[1,2,3]
+    if '*question' in format_var and '*personal' in format_var:
+        format_var=list_replace(format_var, '*question', choice(made_you))
     if '*thanks' in format_var:
         format_var=list_replace(format_var, '*thanks', choice(thank_response))
     if together == 'RESET':
         format_var=['reset','*RESET']
         moodometer=[1]
     # other functions
+    if '*Utility' in format_var:
+        ErrorCount = 0
+        ErrorHandle=True
+        u_messages=[{
+            "role":"system",
+            "content":'You are a smart assistant. Your task is to translate natural language into Windows Batch commands. Provide no context, just the command as anything you output will be immediatly executed as a command. Dont add any unnecessary characters, such as backticks or quotes.'
+        }]
+        try:
+            while ErrorHandle:
+                if ErrorCount >= 1:
+                    prompt='There was an error with the last response. Try again: '
+                else:
+                    prompt=together
+
+
+                u_messages.append({
+                "role":"user",
+                     "content":prompt
+                })
+                chat_completion = client.chat.completions.create(
+                    messages = u_messages,
+                    model="gpt-4o-mini"
+                )
+                format_var=['https://chatgpt.com:\n'+chat_completion.choices[0].message.content]
+                moodometer=[1,3]
+                code = os.system(chat_completion.choices[0].message.content)
+                if code == 0:
+                    ErrorHandle=False
+                elif ErrorCount == 5:
+                    format_var=['There was an error during this operation.']
+                    ErrorHandle=False
+                else:
+                    ErrorCount+=1
+        except AuthenticationError:
+            format_var=['GPThttps://chatgpt.com:\n"'+together+'", Invalid API key']
+            moodometer=[1,3]
     if '*gpt' in format_var:
         try:
             prompt=together
@@ -349,50 +406,103 @@ def server(qstn):
                 "role":"user",
                      "content":prompt
                 })
+            if len(messages) >= 15:
+                messages.pop(1)
             chat_completion = client.chat.completions.create(
                 messages = messages,
                 model="gpt-4o-mini"
             )
             
-            format_var=['Sent to GPT:\n'+chat_completion.choices[0].message.content]
-            moodometer=[1,3]
+            format_var=['https://chatgpt.com:\n'+chat_completion.choices[0].message.content]
+            moodometer=[6]
         except AuthenticationError:
-            format_var=['GPT:\n"'+together+'", Invalid API key']
-            moodometer=[1,3]
+            format_var=['GPThttps://chatgpt.com:\n"'+together+'", Invalid API key']
+            moodometer=[6]
     if '*dall-e' in format_var:
-        try:
-            prompt=together
-            response = client.images.generate(
-                model="dall-e-3",
-                prompt=prompt,
-                size="1024x1024",
-                quality="standard",
-                n=1,
-            )
-            format_var=['Sent to Dall-e: '+response.data[0].url]
-            moodometer=[1,3]
-        except AuthenticationError:
-            format_var=['Dall-E: "'+together+'", Invalid API key']
-            moodometer=[1,3]
+        if not 'pb-' in user_name:
+            try:
+                prompt=together
+                response = client.images.generate(
+                    model="dall-e-3",
+                    prompt=prompt,
+                    size="1024x1024",
+                    quality="standard",
+                    n=1,
+                )
+                format_var=['https://openai.com/index/dall-e-3/: '+response.data[0].url]
+                moodometer=[1,3]
+            except AuthenticationError:
+                format_var=['Dall-E: "'+together+'", Invalid API key']
+                moodometer=[6]
+        else:
+            if limit_num >= 1:
+                limit_num-=1
+                prompt=together
+                response = client.images.generate(
+                    model="dall-e-3",
+                    prompt=prompt,
+                    size="1024x1024",
+                    quality="standard",
+                    n=1,
+                )
+                format_var=['https://openai.com/index/dall-e-3/: You have '+str(limit_num)+' images left. '+response.data[0].url]
+                moodometer=[6]
+            else:
+                format_var=['Dall-ehttps://openai.com/index/dall-e-3/: You do not have any images left']
+                moodometer=[6]
+
+
+
+
+
+
+
+
+#    if '*Search' in format_var and 'Bot314' in user_name:
+#        importlib.reload(ss)
+#        print('reload')
+#        search_data=ss.scrape(together)
+#        if len(search_data) <= 300:
+#
+#            s_messages=[{
+#                "role":"system",
+#                    "content":'I have a webscraper. Organize the output into a single, clean sentence. If necessary, use your own knowledge or context to give the desired output. Output just the cleaned sentence.'
+#                }, {
+#                "role":"user",
+#                     "content":search_data
+#                }]
+#            chat_completion = client.chat.completions.create(
+#                messages = s_messages,
+#                model="gpt-4o-mini"
+#            )        
+#            format_var=["https://www.google.com/search?q="+together.replace(' ','+')+'&hl=en&gl=US&num=10&start=0&filter=1&pws=0: \n'+chat_completion.choices[0].message.content]
+#            moodometer=[1,3]
+#        else:
+#            format_var=["https://www.google.com/search?q="+together.replace(' ','+')+'&hl=en&gl=US&num=10&start=0&filter=1&pws=0: '+search_data]
+#            moodometer=[1,3]
     if '*Search' in format_var:
+        importlib.reload(ss)
+        print('reload')
         try:
-
-
-
             s_messages.append({
                 "role":"user",
                      "content":ss.scrape(together)
                 })
+            if len(s_messages) >= 4:
+                s_messages.pop(1)
             chat_completion = client.chat.completions.create(
                 messages = s_messages,
                 model="gpt-4o-mini"
             )
-        
-            format_var=['GPT+Search_Scrape: \n'+chat_completion.choices[0].message.content]
-            moodometer=[1,3]
+            messages.append({
+                "role":"user",
+                     "content":'Context: '+chat_completion.choices[0].message.content
+                })
+            format_var=["https://www.google.com/search?q="+together.replace(' ','+')+'&hl=en&gl=US&num=10&start=0&filter=1&pws=0: \n'+chat_completion.choices[0].message.content]
+            moodometer=[6]
         except AuthenticationError:
-            format_var=['Search_Scrape: '+ss.scrape(together)]
-            moodometer=[1,3]
+            format_var=["https://www.google.com/search?q="+together.replace(' ','+')+'&hl=en&gl=US&num=10&start=0&filter=1&pws=0: '+ss.scrape(together)]
+            moodometer=[6]
     if 'rock paper scissors' in together:
         format_var.append('Do you want to throw rock, paper, or scissors?')
         moodometer=[1,3]
@@ -401,7 +511,8 @@ def server(qstn):
         moodometer=[1,2,3]
     final=final_output(format_var)
     history.insert(0, final)
-    if final == '':
+    if final == '' and not 7 in moodometer:
+        final="I'm sorry, I didn't understand that."
         moodometer=[5]
     # Determine mood
     #global mood_history
@@ -413,6 +524,8 @@ def server(qstn):
     moodometer.append(mood_average)   
     if 5 in moodometer:
         mood=2
+    elif 6 in moodometer:
+        mood=1
     else:
         mood=choice(moodometer)
     if mood == 1:
@@ -424,15 +537,16 @@ def server(qstn):
             chatlist.remove(chatty)
         else:
             chatty='This conversation is going very long.'
-        chat_history.insert(0, chatty)
     if mood == 3:
         chatty=''
         pass
     if mood == 4:
         chatty=''
         pass
+    chat_history.insert(0, chatty)
+    user_history.insert(0, together)
     if '*RESET' in format_var:
-        chatlist=['Ask me anything! I can search google for an answer.','I can do many things to help out. Just ask me!', 'if you want to play a game, just ask me!','what is your favorite color?', "what are you doing today?", 'what is your favorite food?', 'Tell me about yourself.',"What's your favorite thing to do in your free time?",    "Have you traveled anywhere recently? Where did you go?",    "What's your favorite type of music?",    "Do you have any hobbies that you enjoy?",    "What do you like to do on the weekends?"]
+        chatlist=['Ask me anything! I can search google for an answer.','I can do many things to help out. Just ask me!', 'If you want to play a game, just say "Rock paper scissors!"','Try searching for information or writing stories with me.', "What are you doing today?", 'If you want, I can make images for you.', 'I am powered by Google Search and ChatGPT to deliver the best responses to you.',"What's your favorite thing to do in your free time?",    "You can ask me about anything on the web. If you are specific enough, I can find it.",    "Try asking me about sports results.",    "Do you have any hobbies that you enjoy?",    "What do you like to do on the weekends?"]
         history=['','']
         mood_history=['','']
         chat_history=['','']
@@ -444,12 +558,13 @@ def server(qstn):
                 "role":"system",
                 "content":'I have a webscraper. Organize the output into a single, clean sentence. If necessary, use your own knowledge or context to give the desired output. Output just the cleaned sentence.'
                 }]
-        file1 = open(os.path.join(os.path.dirname(__file__), user_name+"_data"), "w")
-        file1.write(str(chatlist)+'\n'+str(mood_history)+'\n'+str(history)+'\n'+str(chat_history)+'\n'+str(messages)+'\n'+str(s_messages))
-        file1.close()
-    else:
-        file1 = open(os.path.join(os.path.dirname(__file__), user_name+"_data"), "w")
-        file1.write(str(chatlist)+'\n'+str(mood_history)+'\n'+str(history)+'\n'+str(chat_history)+'\n'+str(messages)+'\n'+str(s_messages))
-        file1.close()
+        user_history=['','']
     # finished
     return final, chatty, qstn, debug_format_var
+#moodometer cheat sheet
+#1 is happy
+#2 is chatty
+#3 and 4 are neutral
+#5 forces chatty
+#6 forces not chatty
+#7 is only chatty with no primary
