@@ -24,7 +24,8 @@ def classify_api(sentence):
     return output_tag, float(prob_int)
 # init function defined
 def init(location,key):
-    s_init(location,key)
+    x, y, z =s_init(location,key)
+    return x, y, z
 # download packages if necessary
 def download():
     print('Downloading the model from GitHub. Press Ctrl+c to quit.')
