@@ -932,7 +932,9 @@
         "End Task for Notepad",
         "Terminate the Command Prompt window",
         "Close the github tab.",
-        "Exit the youtube tab."
+        "Exit the youtube tab.",
+        "close vs code.",
+        "Open vs code."
       ],
       "responses": ["Utility"]
     },
