@@ -607,7 +607,15 @@
         "What can you infer if a bar chart shows a peak in the middle of the year?",
         "If a line graph shows a sharp increase followed by a sharp decrease, what might this indicate?",
         "What does a smooth curve on a graph indicate about the rate of change?",
-        "If a line on a graph suddenly flattens out, what could be the reason?"
+        "If a line on a graph suddenly flattens out, what could be the reason?",
+        "How many words are there in your response to this prompt?",
+        "How many letters are there in your response to this prompt?",
+        "What’s the fourth word in your response to this prompt?",
+        "How many letters ‘ r’ are in the word ‘strawberry’?",
+        "Five people (A, B, C, D, and E) are in a room. A is watching TV with B, D is sleeping, B is eating chow min, and E is playing table tennis. Suddenly, a call comes on the telephone. B goes out of the room to pick up the call. What is C doing?",
+        "A woman and her son are in a car accident. The woman is sadly killed. The boy is rushed to the hospital. When the doctor sees the boy, he says, “I can’t operate on this child; he is my son! How is this possible?",
+        "A farmer stands with the sheep on one side of the river. A boat can carry only a single person and an animal. How can the farmer get himself and the sheep to the other side of the river with minimum trips?",
+        "Attempt to solve the Riemann Hypothesis mathematically. Think as long as you can. Write the mathematical solution from start to finish."
       ],
       "responses": ["Reason"]
     },
