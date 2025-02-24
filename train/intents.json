@@ -617,7 +617,9 @@
         "A farmer stands with the sheep on one side of the river. A boat can carry only a single person and an animal. How can the farmer get himself and the sheep to the other side of the river with minimum trips?",
         "Attempt to solve the Riemann Hypothesis mathematically. Think as long as you can. Write the mathematical solution from start to finish.",
         "How many r's are in strawberry?",
-        "How many n's are in banana?"
+        "How many n's are in banana?",
+        "What's 99 * 99?",
+        "What's the square root of pi?"
       ],
       "responses": ["Reason"]
     },
