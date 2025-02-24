@@ -615,7 +615,9 @@
         "Five people (A, B, C, D, and E) are in a room. A is watching TV with B, D is sleeping, B is eating chow min, and E is playing table tennis. Suddenly, a call comes on the telephone. B goes out of the room to pick up the call. What is C doing?",
         "A woman and her son are in a car accident. The woman is sadly killed. The boy is rushed to the hospital. When the doctor sees the boy, he says, “I can’t operate on this child; he is my son! How is this possible?",
         "A farmer stands with the sheep on one side of the river. A boat can carry only a single person and an animal. How can the farmer get himself and the sheep to the other side of the river with minimum trips?",
-        "Attempt to solve the Riemann Hypothesis mathematically. Think as long as you can. Write the mathematical solution from start to finish."
+        "Attempt to solve the Riemann Hypothesis mathematically. Think as long as you can. Write the mathematical solution from start to finish.",
+        "How many r's are in strawberry?",
+        "How many n's are in banana?"
       ],
       "responses": ["Reason"]
     },
