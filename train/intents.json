@@ -1079,7 +1079,18 @@
         "What were the NFL results yesterday?",
         "What teams won yesterday?",
         "What teams play tomorrow?",
-        "Who plays in Sunday night football?"
+        "Who plays in Sunday night football?",
+        "What are the 7 deadly sins?",
+        "What are the 7 wonders of the world?",
+        "What are the 3 laws of motion?",
+        "Who were the 4 Beatles members?",
+        "What are the top 5 largest countries by land area?",
+        "Can you list the 12 zodiac signs?",
+        "What are the ten amendments in the Bill of Rights?",
+        "Who were the six main characters in Friends?",
+        "What are the five stages of grief?",
+        "What are the eight planets in the solar system?",
+        "What are the thirteen original U.S. colonies?"
       ],
       "responses": ["Search"]
     },
