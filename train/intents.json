@@ -301,7 +301,14 @@
         "Can you explain what strange matter is?",
         "Explain how to code an html website with a blue background.",
         "How do I comment stuff out in HTML?",
-        "How to make an incremental counter in python."
+        "How to make an incremental counter in python.",
+        "Please proofread this:",
+        "Can you edit this for me?",
+        "Edit this for grammar:",
+        "Make this text better:",
+        "Edit this document for me.",
+        "Check this essay for grammar and spelling mistakes.",
+        "Proofread my story and check for errors."
       ],
       "responses": ["GPT"]
     },
