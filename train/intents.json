@@ -308,7 +308,30 @@
         "Make this text better:",
         "Edit this document for me.",
         "Check this essay for grammar and spelling mistakes.",
-        "Proofread my story and check for errors."
+        "Proofread my story and check for errors.",
+        "Edit this: Life in a small town can be peaceful but sometimes monotonous. People know each other well, and the local diner is always full of familiar faces. However, some seek excitement beyond its borders.",
+        "Summarize this: Reading books is one of the best ways to expand your mind. Unlike movies, books allow you to imagine scenes in your own way, making each story a personal experience.",
+        "Can you refine this? The old typewriter sat unused in the attic for years. One day, Emma dusted it off and started typing. To her surprise, the words she wrote began appearing in reality.",
+        "Rewrite this to sound more professional: The benefits of morning exercise are undeniable. It boosts metabolism, enhances mood, and sets a productive tone for the day. Even a short walk can make a difference.",
+        "Make this clearer: Technology has made life easier but also more complicated. While we can communicate instantly, distractions have increased, making focus and deep thinking more difficult.",
+        "Improve this: Jake found a small, locked box buried in his backyard. There was no key in sight, but a note inside a bottle nearby read, 'Only open when the time is right.'",
+        "Condense this: Social media has changed how people interact. While it allows for easy communication, it has also led to shorter attention spans and an increase in misinformation.",
+        "Edit this for better flow: Music is one of the most powerful art forms. It can transport listeners to different times in their lives, evoke emotions, and even help with motivation and focus.",
+        "Polish this: Lily always saw a black cat near her window at midnight. One evening, she followed it into the alley and found an old book with her name written on the cover.",
+        "Can you summarize this? Traveling exposes people to new cultures and perspectives. It broadens understanding and helps individuals grow by stepping out of their comfort zones.",
+        "Edit this: The rain poured heavily as Mia walked through the empty streets. She had forgotten her umbrella, but something about the storm felt calming.",
+        "Summarize this: Hard work doesn't always guarantee success, but it increases the chances of achieving your goals. Persistence and adaptability are just as important as talent.",
+        "Can you improve this? Mark stared at the blank page for hours, struggling to find the right words. Writing was never easy, but he knew the first sentence was always the hardest.",
+        "Rewrite this to be more engaging: The city never slept. Cars honked, people rushed, and the lights flickered like stars in the sky. It was chaotic, but there was beauty in the movement.",
+        "Make this more concise: A good leader listens, adapts, and takes responsibility. True leadership isn't about control—it's about inspiring and guiding others.",
+        "Can you edit this for clarity? The invention of the printing press changed history forever. It made books more accessible, spreading knowledge and shaping the modern world.",
+        "Polish this: After years of saving, Jake finally booked his dream trip to Japan. He couldn't wait to see the cherry blossoms, taste real ramen, and explore ancient temples.",
+        "Refine this: The forest was alive with sound. Birds sang, leaves rustled in the wind, and a distant river added a gentle hum to the atmosphere.",
+        "Summarize this: Learning a new language is challenging but rewarding. It opens doors to new cultures, improves cognitive skills, and fosters deeper connections with people worldwide.",
+        "Can you rewrite this with better flow? Every morning, Sarah made the same cup of coffee, sat by the window, and watched the sunrise. It was a small ritual, but it brought her peace.",
+        "Summarize this: Throughout history, leadership has played a critical role in shaping societies. Great leaders inspire change, while poor leaders create instability. Take Abraham Lincoln, for example. He led the United States through the Civil War and preserved the Union, but his leadership was not just about war—it was about unifying a divided nation. Lincoln’s ability to communicate and make difficult decisions was key to his success. In contrast, leaders who rely only on power and intimidation often fail in the long run. Napoleon Bonaparte, despite his military brilliance, ultimately lost his empire due to his overreach and failure to adapt. Leadership is about more than just power; it is about vision, decision-making, and the ability to inspire others.",
+        "Rewrite this in a shorter form: The human brain is one of the most complex organs in the body, responsible for everything from emotions to problem-solving. It consists of billions of neurons that communicate through electrical and chemical signals. The brain is divided into several regions, each specializing in different tasks. The frontal lobe controls decision-making and personality, while the occipital lobe processes vision. The brainstem regulates involuntary functions like breathing and heart rate. Neuroplasticity, the brain’s ability to rewire itself, allows people to learn new skills and recover from injuries. This adaptability is what makes human cognition so powerful.",
+        "Can you summarize this argument? In George Orwell’s *1984*, the concept of surveillance plays a crucial role in controlling society. The Party constantly watches citizens through telescreens, ensuring that no one can rebel. The protagonist, Winston Smith, struggles against this oppression, seeking truth and personal freedom. However, his efforts are ultimately crushed, showing the power of totalitarianism. Orwell’s novel serves as a warning about the dangers of unchecked government control. The theme of surveillance remains relevant today, as modern technology raises concerns about privacy. Orwell’s message is clear: without vigilance, freedom can be easily lost."
       ],
       "responses": ["GPT"]
     },
@@ -626,7 +649,9 @@
         "How many r's are in strawberry?",
         "How many n's are in banana?",
         "What's 99 * 99?",
-        "What's the square root of pi?"
+        "What's the square root of pi?",
+        "A clock shows 3:15. In 45 minutes, what time will it be? Explain how you got the answer.",
+        "John has two apples. He gives one to his friend and keeps the other for himself. Later, he eats the apple he kept. How many apples does John have now, and why?"
       ],
       "responses": ["Reason"]
     },
