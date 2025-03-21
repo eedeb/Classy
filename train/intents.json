@@ -1148,7 +1148,9 @@
         "Can you help me find a place to buy a new laptop?",
         "What are some upcoming events related to artificial intelligence?",
         "What do people say about the new iPhone?",
-        "Is there any news about the Mars rover mission?"
+        "Is there any news about the Mars rover mission?",
+        "What conferences are in the power 5?",
+        "What schools are in the Big 10?"
       ],
       "responses": ["Search"]
     },
