@@ -1150,7 +1150,12 @@
         "What do people say about the new iPhone?",
         "Is there any news about the Mars rover mission?",
         "What conferences are in the power 5?",
-        "What schools are in the Big 10?"
+        "What schools are in the Big 10?",
+        "Can you fact check that?",
+        "Can you search that up?",
+        "Fact check that.",
+        "Look that up",
+        "Search that."
       ],
       "responses": ["Search"]
     },
