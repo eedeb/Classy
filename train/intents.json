@@ -681,7 +681,7 @@
         "How many letters are there in your response to this prompt?",
         "What’s the fourth word in your response to this prompt?",
         "How many letters ‘ r’ are in the word ‘strawberry’?",
-        "Five people (A, B, C, D, and E) are in a room. A is watching TV with B, D is sleeping, B is eating chow min, and E is playing table tennis. Suddenly, a call comes on the telephone. B goes out of the room to pick up the call. What is C doing?",
+        "Five people (A, B, C, D, and E) are in a room. A is watching TV with B, D is sleeping, B is eating chow mein, and E is playing table tennis. Suddenly, a call comes on the telephone. B goes out of the room to pick up the call. What is C doing?",
         "A woman and her son are in a car accident. The woman is sadly killed. The boy is rushed to the hospital. When the doctor sees the boy, he says, “I can’t operate on this child; he is my son! How is this possible?",
         "A farmer stands with the sheep on one side of the river. A boat can carry only a single person and an animal. How can the farmer get himself and the sheep to the other side of the river with minimum trips?",
         "Attempt to solve the Riemann Hypothesis mathematically. Think as long as you can. Write the mathematical solution from start to finish.",
@@ -690,7 +690,15 @@
         "What's 99 * 99?",
         "What's the square root of pi?",
         "A clock shows 3:15. In 45 minutes, what time will it be? Explain how you got the answer.",
-        "John has two apples. He gives one to his friend and keeps the other for himself. Later, he eats the apple he kept. How many apples does John have now, and why?"
+        "John has two apples. He gives one to his friend and keeps the other for himself. Later, he eats the apple he kept. How many apples does John have now, and why?",
+        "Put that in decimal form",
+        "Put that in fraction form",
+        "Please put that in simplest radical form",
+        "Put that in terms of pi",
+        "What is that in decimal form?",
+        "What is that in fractional form?",
+        "Put that in terms of e.",
+        "What is that in simplest radical form?"
       ],
       "responses": ["Reason"]
     },
@@ -1209,7 +1217,12 @@
         "How to watch NFL draft",
         "What does too expensive mean in minecraft",
         "What is the nvidia 5090 dlss 4",
-        "What is Elon Musk's net worth"
+        "What is Elon Musk's net worth",
+        "how to resize a google slide",
+        "how to get coin on level 44 in ovo",
+        "How to get netherite in Minecraft.",
+        "Dangers of road running statistic.",
+        "Road running safety."
       ],
       "responses": ["Search"]
     },
