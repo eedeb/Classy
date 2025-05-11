@@ -371,7 +371,9 @@
         "What should I do for mother's day",
         "What should I do for my son's birthday",
         "What should I get my kids for Christmas",
-        "What should I make for a Thanksgibing meal"
+        "What should I make for a Thanksgibing meal",
+        "Make them 2 syllable.",
+        "Make it female names"
       ],
       "responses": ["GPT"]
     },
