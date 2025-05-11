@@ -367,7 +367,11 @@
         "can you make that copy and paste for me",
         "I made some changes: ",
         "What should I write about for my weekly blog in intro to Info tech",
-        "linux command to see ram"
+        "linux command to see ram",
+        "What should I do for mother's day",
+        "What should I do for my son's birthday",
+        "What should I get my kids for Christmas",
+        "What should I make for a Thanksgibing meal"
       ],
       "responses": ["GPT"]
     },
