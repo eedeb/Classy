@@ -687,7 +687,9 @@
         "What is that in decimal form?",
         "What is that in fractional form?",
         "Put that in terms of e.",
-        "What is that in simplest radical form?"
+        "What is that in simplest radical form?",
+        "solve this riddle what has to be broken before you can use it",
+        "what is nine times for"
       ],
       "responses": ["Reason"]
     },
