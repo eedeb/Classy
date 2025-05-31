@@ -1734,7 +1734,14 @@
         "I want to play a game.",
         "I am 57 and I like coding.",
         "I am a programmer, and I like biking.",
-        "I like to play sports."
+        "I like to play sports.",
+        "I live in New York, New York.",
+        "I live in Philadelphia, Strasburg.",
+        "I live in LA.",
+        "Thanks!",
+        "Thank you",
+        "Thanks a lot",
+        "Do you know where I live?"
       ],
       "responses": ["Personal"]
     }
