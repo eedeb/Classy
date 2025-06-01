@@ -729,7 +729,8 @@
         "Right. How many subsets does a set with 4 elements have?",
         "That clears it up. Can you explain the concept of entropy?",
         "Okay then. What's the derivative of x squared?",
-        "Sure. Can you help me calculate the probability of flipping two heads in a row?"
+        "Sure. Can you help me calculate the probability of flipping two heads in a row?",
+        "That's clear. What is the derivative of 3x²?"
       ],
       "responses": ["Reason"]
     },
