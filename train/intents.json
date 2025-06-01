@@ -1741,7 +1741,10 @@
         "Thanks!",
         "Thank you",
         "Thanks a lot",
-        "Do you know where I live?"
+        "Do you know where I live?",
+        "yo",
+        "sup",
+        "'sup"
       ],
       "responses": ["Personal"]
     }
