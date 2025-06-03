@@ -1276,7 +1276,13 @@
         "Makes sense. What movies are playing nearby?",
         "Interesting. Can you find the top restaurants in Austin, TX?",
         "Alright. What’s the UV index in Miami today?",
-        "Sounds good. Search for scholarship opportunities for high school students."
+        "Sounds good. Search for scholarship opportunities for high school students.",
+        "Give me a news report",
+        "Tell me about the news",
+        "What is some recent news",
+        "Give me a report on recent events",
+        "Tell me about recent news",
+        "I want a news report"
       ],
       "responses": ["Search"]
     },
