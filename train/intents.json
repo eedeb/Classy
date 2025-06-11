@@ -1282,7 +1282,11 @@
         "What is some recent news",
         "Give me a report on recent events",
         "Tell me about recent news",
-        "I want a news report"
+        "I want a news report",
+        "What's the weather like where I live?",
+        "What's the temperature like?",
+        "How hot is it?",
+        "What's the weather like?"
       ],
       "responses": ["Search"]
     },
