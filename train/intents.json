@@ -730,7 +730,17 @@
         "That clears it up. Can you explain the concept of entropy?",
         "Okay then. What's the derivative of x squared?",
         "Sure. Can you help me calculate the probability of flipping two heads in a row?",
-        "That's clear. What is the derivative of 3x²?"
+        "That's clear. What is the derivative of 3x²?",
+        "That was a really vivid scene you wrote—nice pacing and atmosphere. Now let’s switch it up. Try solving this: What comes once in a minute, twice in a moment, but never in a thousand years?",
+        "I like how you phrased that. You’ve got a good handle on tone. But here’s something different—can you answer this riddle? You see a boat filled with people, yet there isn’t a single person on board. How is that possible?",
+        "Thanks, that answered my question clearly. Now for something a bit more abstract: I have keys but no locks. I have space but no room. You can enter, but you can’t go outside. What am I?",
+        "That was a useful summary. While we’re on a roll, try this logic problem: A man looks at a painting and says, “Brothers and sisters, I have none, but that man's father is my father's son.” Who is in the painting?",
+        "That image turned out great—exactly the vibe I had in mind. Let’s change gears. Can you solve this? The more you take, the more you leave behind. What are they?",
+        "Nice rendering, especially the detail. But here’s a brain teaser for you: You measure my life in hours and I serve you by expiring. I’m quick when I’m thin and slow when I’m fat. What am I?",
+        "Good reasoning on that one—you explained it clearly. Here’s a harder one: I turn once, what is out will not get in. I turn again, what is in will not get out. What am I?",
+        "That was solid deduction. Let’s test your logic further: I am always hungry and must always be fed. The finger I touch will soon turn red. What am I?",
+        "That makes sense, thanks for remembering. Switching topics, here’s a riddle: I’m light as a feather, yet the strongest person can’t hold me for five minutes. What am I?",
+        "Glad you remembered that detail. Now let’s pivot to something more puzzle-like—can you figure this out? What can run but never walks, has a bed but never sleeps, has a mouth but never talks?"
       ],
       "responses": ["Reason"]
     },
@@ -1286,7 +1296,17 @@
         "What's the weather like where I live?",
         "What's the temperature like?",
         "How hot is it?",
-        "What's the weather like?"
+        "What's the weather like?",
+        "That story idea was creative—I like how you built the suspense. On a different note, could you look up the average tuition for MIT right now?",
+        "Nice phrasing on that response. Switching gears—can you find out what the current population of Tokyo is?",
+        "That visual turned out better than I expected. Now I need some info: can you search for how many moons Jupiter has?",
+        "Great style on that image. Quick question—can you check who’s currently the CEO of OpenAI?",
+        "That was a clever solution—I wouldn’t have thought of it that way. Now can you search what year Einstein published the theory of relativity?",
+        "Good logic there. I’ve got something factual now—can you find out the boiling point of mercury in Celsius?",
+        "I’m doing well, thanks for asking. Actually, can you look up what the weather is like in Seattle right now?",
+        "Yeah, it’s been a pretty chill day. Could you check when the next solar eclipse will be visible in the U.S.?",
+        "That helps a lot. Can you also look up the latest iPhone model and its release date?",
+        "Thanks, that answered it. While you’re at it, could you search for how many calories are in a typical slice of pepperoni pizza?"
       ],
       "responses": ["Search"]
     },
