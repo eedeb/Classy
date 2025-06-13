@@ -1836,7 +1836,8 @@
         "Do you know where I live?",
         "yo",
         "sup",
-        "'sup"
+        "'sup",
+        "Hey there! Before we start, can you tell me what you're best at?"
       ],
       "responses": ["Personal"]
     }
