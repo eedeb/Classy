@@ -8,6 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import train_test_split  # Added for validation split
 
 from nltk_utils import bag_of_words, tokenize, stem
+#nltk.download('punkt_tab')
 from model import NeuralNet
 
 # Load JSON file
