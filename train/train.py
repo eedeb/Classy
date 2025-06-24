@@ -12,7 +12,7 @@ from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
 
 # Load JSON file
-with open('intents.json', 'r', encoding='utf-8') as f:
+with open('train/intents.json', 'r', encoding='utf-8') as f:
     intents = json.load(f)
 
 # Process and prepare the data
