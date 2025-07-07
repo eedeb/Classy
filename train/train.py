@@ -12,7 +12,7 @@ from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
 
 # Load JSON file
-with open('train/intents.json', 'r', encoding='utf-8') as f:
+with open('intents.json', 'r', encoding='utf-8') as f:
     intents = json.load(f)
 
 # Process and prepare the data
@@ -53,7 +53,7 @@ X = np.array(X)
 y = np.array(y)
 
 # Split into training and validation sets
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=None)
 
 # Define hyperparameters
 num_epochs = 300  # Reduced due to early convergence
