@@ -1971,7 +1971,10 @@
         "call 202-555-0147",
         "dial 310-555-0199",
         "call the school",
-        "call the dentist"
+        "call the dentist",
+        "hang up",
+        "end the call",
+        "terminate the call"
     ],
       "responses": ["Utility"]
     },
