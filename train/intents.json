@@ -1347,7 +1347,11 @@
         "Yeah, it’s been a pretty chill day. Could you check when the next solar eclipse will be visible in the U.S.?",
         "That helps a lot. Can you also look up the latest iPhone model and its release date?",
         "Thanks, that answered it. While you’re at it, could you search for how many calories are in a typical slice of pepperoni pizza?",
-        "that was a good summary, it really cleared things up. Now tell me, how is the weather in Strasburg"
+        "that was a good summary, it really cleared things up. Now tell me, how is the weather in Strasburg",
+        "Give me an update on the floods in Texas",
+        "Update me on the Diddy case",
+        "What is some recent news about Trump and Elon",
+        "I want an update on the state of AI"
       ],
       "responses": ["Search"]
     },
