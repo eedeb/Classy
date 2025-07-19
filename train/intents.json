@@ -1986,7 +1986,17 @@
         "execute command 4 with parameter red",
         "Please start command 3 with option 2",
         "run command 2",
-        "start command 1 with configuration of on"
+        "start command 1 with configuration of on",
+        "save that data to file.txt",
+        "create a file called hello.txt that says hello world",
+        "make a file called goodbye.txt and write a story in it",
+        "write 'hi there' into greetings.txt",
+        "store the results in output.txt",
+        "generate a file named notes.txt and put some notes in it",
+        "write something to a document called report.txt",
+        "save this text as readme.md",
+        "make a log file named log.txt",
+        "put the content into summary.txt"
     ],
       "responses": ["Utility"]
     },
