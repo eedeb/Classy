@@ -1978,7 +1978,15 @@
         "call the dentist",
         "hang up",
         "end the call",
-        "terminate the call"
+        "terminate the call",
+        "execute command 8",
+        "run custom command 7",
+        "please run command 6",
+        "run command 5 with parameter on",
+        "execute command 4 with parameter red",
+        "Please start command 3 with option 2",
+        "run command 2",
+        "start command 1 with configuration of on"
     ],
       "responses": ["Utility"]
     },
