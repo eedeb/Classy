@@ -781,7 +781,8 @@
         "That inference seems weak.",
         "Explain the connection between those two ideas.",
         "What’s the basis for that claim?",
-        "That’s not consistent with what you said before."
+        "That’s not consistent with what you said before.",
+        "So if I bike there and back, I will completeky burn my 300 calorie slice of cheese pizza"
       ],
       "responses": ["Reason"]
     },
@@ -1351,7 +1352,12 @@
         "Give me an update on the floods in Texas",
         "Update me on the Diddy case",
         "What is some recent news about Trump and Elon",
-        "I want an update on the state of AI"
+        "I want an update on the state of AI",
+        "What is Papa John's phone number?",
+        "Can I get the customer support number for Microsoft?",
+        "Give me the Golf course's number",
+        "Search up the pizza place's number",
+        "What is the barber's phone number"
       ],
       "responses": ["Search"]
     },
@@ -1371,6 +1377,10 @@
         "Change it to apples and banannas instead of grapes and oranges.",
         "Make the paragraph longer.",
         "Expand on what you wrote.",
+        "I weigh 160 pounds and my biking pace is 15-17 mph",
+        "My running pace is 8 minutes per mile and I am 6 feet tall",
+        "I am black and I weight 140 pounds",
+        "I am from Germany and I have blue eyes",
         "Change it to be more eloquent.",
         "I need it to be more sophisticated.",
         "Please make it more ambitious.",
