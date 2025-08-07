@@ -47,28 +47,26 @@ def init(location):
 # define funcions for processing output
 import numpy as np
 
-def bag_of_words(tokenized_sentence, words):
-    # stem each word
-    sentence_words = [stemmer.stem(word.lower()) for word in tokenized_sentence]
-    # initialize bag with 0 for each word
-    bag = np.zeros(len(words), dtype=np.float32)
-    for idx, w in enumerate(words):
-        if w in sentence_words: 
-            bag[idx] = 1
-    return bag
-def tokenize(sentence):
-    return nltk.word_tokenize(sentence)
+from sentence_transformers import SentenceTransformer
+
+# Load the pretrained model once
+embedder = SentenceTransformer('all-MiniLM-L6-v2')
+
+def embed_sentence(sentence):
+    """
+    Generate a 384-dim embedding from a sentence using SentenceTransformer.
+    Returns a NumPy array.
+    """
+    return embedder.encode([sentence])[0]
 # function for classifying input
 def classify(sentence,location):
     # make sure the model has been initialized
     global check
     if check == False:
         init(location)
-    # format input to bag of words
-    sentence = tokenize(sentence)
-    X = bag_of_words(sentence, all_words)
-    X = X.reshape(1, X.shape[0])
-    X = torch.from_numpy(X).to(device)
+    # Generate embedding
+    X = embed_sentence(sentence)  # This returns a 384-dim vector (np array)
+    X = torch.from_numpy(X).float().unsqueeze(0).to(device)  # shape: [1, 384]
     # get output from the model
     output = model(X)
     _, predicted = torch.max(output, dim=1)

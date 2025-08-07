@@ -7,7 +7,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import train_test_split  # Added for validation split
 
-from nltk_utils import bag_of_words, tokenize, stem
+from nltk_utils import embed_sentence
 #nltk.download('punkt_tab')
 from model import NeuralNet
 
@@ -24,9 +24,7 @@ for intent in intents['intents']:
     tag = intent['tag']
     tags.append(tag)
     for pattern in intent['patterns']:
-        w = tokenize(pattern)
-        all_words.extend(w)
-        xy.append((w, tag))
+        xy.append((pattern, tag))
 
 # Stem, lower and clean punctuation
 ignore_words = ['?', '.', '!', '"']
@@ -44,8 +42,7 @@ print(len(all_words), "unique stemmed words:", all_words)
 X = []
 y = []
 for (pattern_sentence, tag) in xy:
-    bag = bag_of_words(pattern_sentence, all_words)
-    X.append(bag)
+    X.append(embed_sentence(pattern_sentence))
     label = tags.index(tag)
     y.append(label)
 
@@ -60,7 +57,7 @@ num_epochs = 300  # Reduced due to early convergence
 batch_size = 64
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size = 8
+hidden_size = 16
 output_size = len(tags)
 
 print(f"{input_size} > {hidden_size} > {output_size}")

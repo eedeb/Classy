@@ -1,28 +1,11 @@
-import numpy as np
-import nltk
-# nltk.download('punkt')
-from nltk.stem.porter import PorterStemmer
-stemmer = PorterStemmer()
+from sentence_transformers import SentenceTransformer
 
-def tokenize(sentence):
-    # split the sentence into individual words
-    return nltk.word_tokenize(sentence)
+# Load the pretrained model once
+embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
-
-def stem(word):
-    # stem the word to find the root and connect similar words
-    return stemmer.stem(word.lower())
-
-
-def bag_of_words(tokenized_sentence, words):
-    # return bow array so that the nn can understand the data.
-    # stem each word
-    sentence_words = [stem(word) for word in tokenized_sentence]
-    print(sentence_words)
-    # initialize bag with 0 for each word
-    bag = np.zeros(len(words), dtype=np.float32)
-    for idx, w in enumerate(words):
-        if w in sentence_words: 
-            bag[idx] = 1
-
-    return bag
+def embed_sentence(sentence):
+    """
+    Generate a 384-dim embedding from a sentence using SentenceTransformer.
+    Returns a NumPy array.
+    """
+    return embedder.encode([sentence])[0]
