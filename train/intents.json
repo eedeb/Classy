@@ -1373,7 +1373,8 @@
         "Find me Walmart's phone number",
         "Give me the phone number for the high school",
         "Call a nearby hardware store",
-        "Tell me the number for tech support"
+        "Tell me the number for tech support",
+        "who is the president of france"
       ],
       "responses": ["Search"]
     },
