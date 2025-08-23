@@ -1374,7 +1374,9 @@
         "Give me the phone number for the high school",
         "Call a nearby hardware store",
         "Tell me the number for tech support",
-        "who is the president of france"
+        "who is the president of france",
+        "Give me a news update",
+        "Give me a news report"
       ],
       "responses": ["Search"]
     },
