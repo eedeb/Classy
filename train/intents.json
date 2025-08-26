@@ -398,7 +398,8 @@
         "What made you say that?",
         "How does that statement follow from the last one?",
         "Can you rewrite that part so it matches the context?",
-        "Please explain the meaning of epidemic."
+        "Please explain the meaning of epidemic.",
+        "What is the babylonian exile and the great schism?"
       ],
       "responses": ["GPT"]
     },
