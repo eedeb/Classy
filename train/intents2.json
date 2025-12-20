@@ -135,9 +135,13 @@
         "I cannot provide live updates on current stock prices.",
         "I cannot disclose confidential academic research.",
         "I do not know the outcome of unreleased sporting events.",
+        "I cannot access personal financial records.",
+        "I don’t have details on unpublished medical studies.",
+        "I cannot provide real-time updates on weather conditions.",
+        "I cannot give instructions for illegal activities.",
+        "I cannot provide private data about specific people.",
+        "I cannot provide private financial information of individuals.",
         "I cannot provide private data about specific people."
-
-        
     ],
       "responses": ["inconclusive"]
     }
