@@ -56,6 +56,10 @@ def embed_sentence(sentence):
     return embedder.encode([sentence])[0]
 # function for classifying input
 def classify(sentence,location):
+    ignore_words = ['?', '.', '!', '"']
+    sentence = sentence.lower()
+    for i in ignore_words:
+        sentence = sentence.replace(i, '')
     # make sure the model has been initialized
     global check
     if check == False:

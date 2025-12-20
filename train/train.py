@@ -19,14 +19,20 @@ with open('intents.json', 'r', encoding='utf-8') as f:
 tags = []
 xy = []
 
+# Stem, lower and clean punctuation
+ignore_words = ['?', '.', '!', '"']
+
+
 for intent in intents['intents']:
     tag = intent['tag']
     tags.append(tag)
     for pattern in intent['patterns']:
+        for i in ignore_words:
+            pattern = pattern.replace(i, "")
+        pattern = pattern.lower()
         xy.append((pattern, tag))
 
-# Stem, lower and clean punctuation
-ignore_words = ['?', '.', '!', '"']
+
 
 # Remove duplicates and sort
 tags = sorted(set(tags))
