@@ -14,7 +14,6 @@ data=0
 input_size = ''
 hidden_size = ''
 output_size = ''
-all_words = ''
 tags = ''
 model_state = ''
 
@@ -26,7 +25,6 @@ def init(location):
     global input_size
     global hidden_size
     global output_size
-    global all_words
     global tags
     global model_state
     global model
@@ -34,9 +32,7 @@ def init(location):
     data = torch.load(location)
     input_size = data["input_size"]
     hidden_size = data["hidden_size"]
-    hidden_size_2 = data["hidden_size_2"]
     output_size = data["output_size"]
-    all_words = data['all_words']
     tags = data['tags']
     model_state = data["model_state"]
 

@@ -16,7 +16,6 @@ with open('intents.json', 'r', encoding='utf-8') as f:
     intents = json.load(f)
 
 # Process and prepare the data
-all_words = []
 tags = []
 xy = []
 
@@ -28,15 +27,12 @@ for intent in intents['intents']:
 
 # Stem, lower and clean punctuation
 ignore_words = ['?', '.', '!', '"']
-all_words = [stem(w) for w in all_words if w not in ignore_words]
 
 # Remove duplicates and sort
-all_words = sorted(set(all_words))
 tags = sorted(set(tags))
 
 print(len(xy), "patterns")
 print(len(tags), "tags:", tags)
-print(len(all_words), "unique stemmed words:", all_words)
 
 # Create training data
 X = []
@@ -45,7 +41,6 @@ for (pattern_sentence, tag) in xy:
     X.append(embed_sentence(pattern_sentence))
     label = tags.index(tag)
     y.append(label)
-
 X = np.array(X)
 y = np.array(y)
 
@@ -54,10 +49,10 @@ X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_st
 
 # Define hyperparameters
 num_epochs = 300  # Reduced due to early convergence
-batch_size = 64
+batch_size = 32
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size = 16
+hidden_size = 64
 output_size = len(tags)
 
 print(f"{input_size} > {hidden_size} > {output_size}")
@@ -95,7 +90,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=
 # Training loop
 best_val_loss = float('inf')
 early_stop_counter = 0
-patience = 10  # Stop if no improvement for 10 evaluations
+patience = 20  # Stop if no improvement for 20 evaluations
 
 for epoch in range(num_epochs):
     model.train()
@@ -114,15 +109,21 @@ for epoch in range(num_epochs):
     model.eval()
     with torch.no_grad():
         val_loss = 0
+        correct, total = 0, 0
         for words, labels in val_loader:
             words = words.to(device)
             labels = labels.to(dtype=torch.long).to(device)
             outputs = model(words)
             val_loss += criterion(outputs, labels).item()
+            _, predicted = torch.max(outputs, dim=1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
         val_loss /= len(val_loader)
+        val_acc = 100 * correct / total
+
 
     # Logging
-    if (epoch + 1) % 25 == 0 or epoch == 0:
+    if (epoch + 1) % 1 == 0 or epoch == 0:
         print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Val Loss: {val_loss:.4f}')
 
     # Early stopping check
@@ -143,9 +144,7 @@ data = {
     "model_state": model.state_dict(),
     "input_size": input_size,
     "hidden_size": hidden_size,
-    "hidden_size_2": 0,
     "output_size": output_size,
-    "all_words": all_words,
     "tags": tags
 }
 
