@@ -72,5 +72,14 @@ def classify(sentence,location):
     _, predicted = torch.max(output, dim=1)
     tag = tags[predicted.item()]
     probs = torch.softmax(output, dim=1)
-    prob = probs[0][predicted.item()]
-    return tag, prob.item()
+    prob=[]
+    for i in probs[0]:
+        prob.append(i.item())
+    old_prob=prob.copy()
+    prob.sort(reverse=True)
+    likely_tags=[]
+    for i in prob:
+        prob_index=old_prob.index(i)
+        likely_tags.append(tags[prob_index])
+    #prob = probs[0][predicted.item()]
+    return likely_tags, prob
