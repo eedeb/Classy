@@ -17,7 +17,7 @@ def cross_entropy(y_true, y_pred):
 
 # Load the pretrained embedding model
 embedder = SentenceTransformer('all-MiniLM-L6-v2')
-with open ('train2/model.json', 'r') as f:
+with open('model2/train2/model.json', 'r') as f:
     model_params = json.load(f)
 tags=model_params['tags']
 def model(sentence):
@@ -57,7 +57,7 @@ def predict_with_tags(sentence):
     final_out=[]
     final_tags=[]
     for i in range(len(sentence)):
-        final_out.append(str(sentence[i]))
+        final_out.append(sentence[i])
         final_tags.append(tags[i])
     return final_out, final_tags
 def classify(sentence):
