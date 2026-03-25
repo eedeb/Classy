@@ -12,7 +12,7 @@ from nltk_utils import embed_sentence
 from model import NeuralNet
 
 # Load JSON file
-with open('intents.json', 'r', encoding='utf-8') as f:
+with open('agent_intents.json', 'r', encoding='utf-8') as f:
     intents = json.load(f)
 
 # Process and prepare the data
