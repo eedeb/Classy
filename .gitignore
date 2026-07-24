@@ -1,0 +1,18 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Dataset optimizer backups
+*.json.bak
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

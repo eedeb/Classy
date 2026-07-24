@@ -1,11 +1,7 @@
 # import packages
-import random
 import torch
 from Classy.model import NeuralNet
-import nltk
-from nltk.stem.porter import PorterStemmer
 # define variables
-stemmer = PorterStemmer()
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

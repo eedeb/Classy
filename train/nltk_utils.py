@@ -9,3 +9,11 @@ def embed_sentence(sentence):
     Returns a NumPy array.
     """
     return embedder.encode([sentence])[0]
+
+
+def embed_sentences(sentences):
+    """
+    Embed a list of sentences in a single batched call. Much faster than
+    calling embed_sentence() in a loop. Returns a (N, 384) NumPy array.
+    """
+    return embedder.encode(list(sentences), batch_size=64, show_progress_bar=True)
